@@ -6,5 +6,10 @@ namespace _2048_WinForms_App
         {
             InitializeComponent();
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
