@@ -28,21 +28,46 @@
         /// </summary>
         private void InitializeComponent()
         {
+            scoreTextLabel = new Label();
+            scoreLabel = new Label();
             SuspendLayout();
+            // 
+            // scoreTextLabel
+            // 
+            scoreTextLabel.AutoSize = true;
+            scoreTextLabel.Location = new Point(61, 33);
+            scoreTextLabel.Name = "scoreTextLabel";
+            scoreTextLabel.Size = new Size(42, 15);
+            scoreTextLabel.TabIndex = 0;
+            scoreTextLabel.Text = "Score: ";
+            // 
+            // scoreLabel
+            // 
+            scoreLabel.AutoSize = true;
+            scoreLabel.Location = new Point(128, 33);
+            scoreLabel.Name = "scoreLabel";
+            scoreLabel.Size = new Size(13, 15);
+            scoreLabel.TabIndex = 1;
+            scoreLabel.Text = "0";
             // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(811, 587);
+            ClientSize = new Size(983, 666);
+            Controls.Add(scoreLabel);
+            Controls.Add(scoreTextLabel);
             Name = "MainForm";
             Text = "MainForm";
             Load += Form1_Load;
             KeyDown += MainForm_KeyDown;
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
+        private Label scoreTextLabel;
+        private Label scoreLabel;
     }
 }

@@ -5,6 +5,7 @@ namespace _2048_WinForms_App
         private const int mapSize = 4;
         private Label[,] labelsMap;
         private static Random random = new Random();
+        private int score = 0;
         public MainForm()
         {
             InitializeComponent();
@@ -14,6 +15,12 @@ namespace _2048_WinForms_App
         {
             InitMap();
             GenerateNumber();
+            ShowScore();
+        }
+
+        private void ShowScore()
+        {
+            scoreLabel.Text = score.ToString();
         }
 
         private void GenerateNumber()
@@ -90,13 +97,14 @@ namespace _2048_WinForms_App
                                     {
                                         int number = int.Parse(labelsMap[row, col].Text);
                                         labelsMap[row, col].Text = (number * 2).ToString();
+                                        score += number * 2;
                                         labelsMap[row, nextCol].Text = string.Empty;
                                     }
                                     break;
                                 }
                             }
                         }
-                        
+
                     }
                 }
 
@@ -116,7 +124,7 @@ namespace _2048_WinForms_App
                                 }
                             }
                         }
-                        
+
                     }
                 }
             }
@@ -137,13 +145,14 @@ namespace _2048_WinForms_App
                                     {
                                         int number = int.Parse(labelsMap[row, col].Text);
                                         labelsMap[row, col].Text = (number * 2).ToString();
+                                        score += number * 2;
                                         labelsMap[row, nextCol].Text = string.Empty;
                                     }
                                     break;
                                 }
                             }
                         }
-                        
+
                     }
                 }
 
@@ -151,7 +160,7 @@ namespace _2048_WinForms_App
                 {
                     for (int col = 0; col < mapSize; col++)
                     {
-                        if (labelsMap[row,col].Text == string.Empty)
+                        if (labelsMap[row, col].Text == string.Empty)
                         {
                             for (int nextCol = col + 1; nextCol < mapSize; nextCol++)
                             {
@@ -163,7 +172,7 @@ namespace _2048_WinForms_App
                                 }
                             }
                         }
-                        
+
                     }
                 }
             }
@@ -173,7 +182,7 @@ namespace _2048_WinForms_App
                 {
                     for (int row = 0; row < mapSize; row++)
                     {
-                        if (labelsMap[row,col].Text != string.Empty)
+                        if (labelsMap[row, col].Text != string.Empty)
                         {
                             for (int nextRow = row + 1; nextRow < mapSize; nextRow++)
                             {
@@ -183,6 +192,7 @@ namespace _2048_WinForms_App
                                     {
                                         int number = int.Parse(labelsMap[row, col].Text);
                                         labelsMap[row, col].Text = (number * 2).ToString();
+                                        score += number * 2;
                                         labelsMap[nextRow, col].Text = string.Empty;
                                     }
                                     break;
@@ -217,7 +227,7 @@ namespace _2048_WinForms_App
                 {
                     for (int row = mapSize - 1; row >= 0; row--)
                     {
-                        if (labelsMap[row,col].Text != string.Empty)
+                        if (labelsMap[row, col].Text != string.Empty)
                         {
                             for (int nextRow = row - 1; nextRow >= 0; nextRow--)
                             {
@@ -227,6 +237,7 @@ namespace _2048_WinForms_App
                                     {
                                         int number = int.Parse(labelsMap[row, col].Text);
                                         labelsMap[row, col].Text = (number * 2).ToString();
+                                        score += number * 2;
                                         labelsMap[nextRow, col].Text = string.Empty;
                                     }
                                     break;
@@ -257,8 +268,12 @@ namespace _2048_WinForms_App
             }
 
             GenerateNumber();
+            ShowScore();
         }
 
-        
+        //private void exitGameButton_Click(object sender, EventArgs e)
+        //{
+        //    Close();
+        //}
     }
 }
