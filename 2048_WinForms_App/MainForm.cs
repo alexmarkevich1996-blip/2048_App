@@ -1,3 +1,5 @@
+using _2048_Data;
+
 namespace _2048_WinForms_App
 {
     public partial class MainForm : Form
@@ -16,13 +18,22 @@ namespace _2048_WinForms_App
             InitMap();
             GenerateNumber();
             ShowScore();
-        }
 
-        private void ShowScore()
+        }
+        private void InitMap()
         {
-            scoreLabel.Text = score.ToString();
-        }
+            labelsMap = new Label[mapSize, mapSize];
 
+            for (int i = 0; i < mapSize; i++)
+            {
+                for (int j = 0; j < mapSize; j++)
+                {
+                    var newLabel = CreateLabel(i, j);
+                    Controls.Add(newLabel);
+                    labelsMap[i, j] = newLabel;
+                }
+            }
+        }
         private void GenerateNumber()
         {
             while (true)
@@ -39,27 +50,21 @@ namespace _2048_WinForms_App
 
                 int GetStartingNumber()
                 {
-                    const double margin = 80.0 / 100.0;
-                    int result = random.NextDouble() <= margin ? 2 : 4;
+                    var randomNumber = random.Next(1, 101);
+                    int result = randomNumber <= 75 ? 2 : 4;
                     return result;
                 }
             }
         }
 
-        private void InitMap()
+        private void ShowScore()
         {
-            labelsMap = new Label[mapSize, mapSize];
-
-            for (int i = 0; i < mapSize; i++)
-            {
-                for (int j = 0; j < mapSize; j++)
-                {
-                    var newLabel = CreateLabel(i, j);
-                    Controls.Add(newLabel);
-                    labelsMap[i, j] = newLabel;
-                }
-            }
+            scoreLabel.Text = score.ToString();
         }
+
+
+
+
 
         private Label CreateLabel(int indexRow, int indexColumn)
         {
@@ -274,6 +279,22 @@ namespace _2048_WinForms_App
         private void returnToMenuButton_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void rulesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var gameRulesForm = new GameRulesForm();
+            gameRulesForm.ShowDialog();
+        }
+
+        private void restartToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Restart();
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

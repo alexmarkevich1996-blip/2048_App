@@ -1,3 +1,5 @@
 <Solution>
+  <Project Path="2048_Core/2048_Core.csproj" Id="f56cf2d4-cfff-4391-9726-071f3caf9404" />
+  <Project Path="2048_Data/2048_Data.csproj" Id="214030c6-ca3e-46ab-8dc5-83d3390e7ff8" />
   <Project Path="2048_WinForms_App/2048_WinForms_App.csproj" />
 </Solution>
