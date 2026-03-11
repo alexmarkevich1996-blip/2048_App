@@ -30,6 +30,7 @@
         {
             startNewGameButton = new Button();
             ExitAppButton = new Button();
+            readGameRulesButton = new Button();
             SuspendLayout();
             // 
             // startNewGameButton
@@ -53,11 +54,22 @@
             ExitAppButton.UseVisualStyleBackColor = false;
             ExitAppButton.Click += ExitAppButton_Click;
             // 
+            // readGameRulesButton
+            // 
+            readGameRulesButton.Location = new Point(318, 216);
+            readGameRulesButton.Name = "readGameRulesButton";
+            readGameRulesButton.Size = new Size(168, 41);
+            readGameRulesButton.TabIndex = 2;
+            readGameRulesButton.Text = "Read Game Rules";
+            readGameRulesButton.UseVisualStyleBackColor = true;
+            readGameRulesButton.Click += readGameRulesButton_Click;
+            // 
             // MenuForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(866, 595);
+            Controls.Add(readGameRulesButton);
             Controls.Add(ExitAppButton);
             Controls.Add(startNewGameButton);
             Name = "MenuForm";
@@ -69,5 +81,6 @@
 
         private Button startNewGameButton;
         private Button ExitAppButton;
+        private Button readGameRulesButton;
     }
 }

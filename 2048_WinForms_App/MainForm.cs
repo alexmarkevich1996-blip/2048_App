@@ -271,9 +271,9 @@ namespace _2048_WinForms_App
             ShowScore();
         }
 
-        //private void exitGameButton_Click(object sender, EventArgs e)
-        //{
-        //    Close();
-        //}
+        private void returnToMenuButton_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

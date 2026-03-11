@@ -1,4 +1,3 @@
 <Solution>
-  <Project Path="2048_Core/2048_Core.csproj" Id="3dff11fc-b553-4c04-ae30-f6ac2e7c50b1" />
   <Project Path="2048_WinForms_App/2048_WinForms_App.csproj" />
 </Solution>

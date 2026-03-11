@@ -57,6 +57,7 @@
             ClientSize = new Size(983, 666);
             Controls.Add(scoreLabel);
             Controls.Add(scoreTextLabel);
+            KeyPreview = true;
             Name = "MainForm";
             Text = "MainForm";
             Load += Form1_Load;
