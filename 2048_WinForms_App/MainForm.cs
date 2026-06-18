@@ -63,9 +63,6 @@ namespace _2048_WinForms_App
         }
 
 
-
-
-
         private Label CreateLabel(int indexRow, int indexColumn)
         {
             var label = new Label();
@@ -88,22 +85,22 @@ namespace _2048_WinForms_App
         {
             if (e.KeyCode == Keys.Right)
             {
-                for (int row = 0; row < mapSize; row++)
+                for (int i = 0; i < mapSize; i++)
                 {
-                    for (int col = mapSize - 1; col > 0; col--)
+                    for (int j = mapSize - 1; j >= 0; j--)
                     {
-                        if (labelsMap[row, col].Text != string.Empty)
+                        if (labelsMap[i, j].Text != string.Empty)
                         {
-                            for (int nextCol = col - 1; nextCol >= 0; nextCol--)
+                            for (int k = j - 1; k >= 0; k--)
                             {
-                                if (labelsMap[row, nextCol].Text != string.Empty)
+                                if (labelsMap[i, k].Text != string.Empty)
                                 {
-                                    if (labelsMap[row, col].Text == labelsMap[row, nextCol].Text)
+                                    if (labelsMap[i, j].Text == labelsMap[i, k].Text)
                                     {
-                                        int number = int.Parse(labelsMap[row, col].Text);
-                                        labelsMap[row, col].Text = (number * 2).ToString();
+                                        var number = int.Parse(labelsMap[i, j].Text);
+                                        labelsMap[i, j].Text = (number * 2).ToString();
                                         score += number * 2;
-                                        labelsMap[row, nextCol].Text = string.Empty;
+                                        labelsMap[i, k].Text = string.Empty;
                                     }
                                     break;
                                 }
@@ -113,18 +110,18 @@ namespace _2048_WinForms_App
                     }
                 }
 
-                for (int row = 0; row < mapSize; row++)
+                for (int i = 0; i < mapSize; i++)
                 {
-                    for (int col = mapSize - 1; col > 0; col--)
+                    for (int j = mapSize - 1; j >= 0; j--)
                     {
-                        if (labelsMap[row, col].Text == string.Empty)
+                        if (labelsMap[i, j].Text == string.Empty)
                         {
-                            for (int nextCol = col - 1; nextCol >= 0; nextCol--)
+                            for (int k = j - 1; k >= 0; k--)
                             {
-                                if (labelsMap[row, nextCol].Text != string.Empty)
+                                if (labelsMap[i, k].Text != string.Empty)
                                 {
-                                    labelsMap[row, col].Text = labelsMap[row, nextCol].Text;
-                                    labelsMap[row, nextCol].Text = string.Empty;
+                                    labelsMap[i, j].Text = labelsMap[i, k].Text;
+                                    labelsMap[i, k].Text = string.Empty;
                                     break;
                                 }
                             }
@@ -136,22 +133,22 @@ namespace _2048_WinForms_App
 
             if (e.KeyCode == Keys.Left)
             {
-                for (int row = 0; row < mapSize; row++)
+                for (int i = 0; i < mapSize; i++)
                 {
-                    for (int col = 0; col < mapSize; col++)
+                    for (int j = 0; j < mapSize; j++)
                     {
-                        if (labelsMap[row, col].Text != string.Empty)
+                        if (labelsMap[i, j].Text != string.Empty)
                         {
-                            for (int nextCol = col + 1; nextCol < mapSize; nextCol++)
+                            for (int k  = j + 1; k < mapSize; k++)
                             {
-                                if (labelsMap[row, nextCol].Text != string.Empty)
+                                if (labelsMap[i, k].Text != string.Empty)
                                 {
-                                    if (labelsMap[row, nextCol].Text == labelsMap[row, col].Text)
+                                    if (labelsMap[i, j].Text == labelsMap[i, k].Text)
                                     {
-                                        int number = int.Parse(labelsMap[row, col].Text);
-                                        labelsMap[row, col].Text = (number * 2).ToString();
+                                        int number = int.Parse(labelsMap[i, j].Text);
+                                        labelsMap[i, j].Text = (number * 2).ToString();
                                         score += number * 2;
-                                        labelsMap[row, nextCol].Text = string.Empty;
+                                        labelsMap[i, k].Text = string.Empty;
                                     }
                                     break;
                                 }
@@ -161,18 +158,18 @@ namespace _2048_WinForms_App
                     }
                 }
 
-                for (int row = 0; row < mapSize; row++)
+                for (int i = 0; i < mapSize; i++)
                 {
-                    for (int col = 0; col < mapSize; col++)
+                    for (int j = 0; j < mapSize; j++)
                     {
-                        if (labelsMap[row, col].Text == string.Empty)
+                        if (labelsMap[i, j].Text == string.Empty)
                         {
-                            for (int nextCol = col + 1; nextCol < mapSize; nextCol++)
+                            for (int k = j + 1; k < mapSize; k++)
                             {
-                                if (labelsMap[row, nextCol].Text != string.Empty)
+                                if (labelsMap[i, k].Text != string.Empty)
                                 {
-                                    labelsMap[row, col].Text = labelsMap[row, nextCol].Text;
-                                    labelsMap[row, nextCol].Text = string.Empty;
+                                    labelsMap[i, j].Text = labelsMap[i, k].Text;
+                                    labelsMap[i, k].Text = string.Empty;
                                     break;
                                 }
                             }
@@ -183,22 +180,22 @@ namespace _2048_WinForms_App
             }
             if (e.KeyCode == Keys.Up)
             {
-                for (int col = 0; col < mapSize; col++)
+                for (int j = 0; j < mapSize; j++)
                 {
-                    for (int row = 0; row < mapSize; row++)
+                    for (int i = 0; i < mapSize; i++)
                     {
-                        if (labelsMap[row, col].Text != string.Empty)
+                        if (labelsMap[i, j].Text != string.Empty)
                         {
-                            for (int nextRow = row + 1; nextRow < mapSize; nextRow++)
+                            for (int k = i + 1; k < mapSize; k++)
                             {
-                                if (labelsMap[nextRow, col].Text != string.Empty)
+                                if (labelsMap[k, j].Text != string.Empty)
                                 {
-                                    if (labelsMap[row, col].Text == labelsMap[nextRow, col].Text)
+                                    if (labelsMap[i, j].Text == labelsMap[k,j].Text)
                                     {
-                                        int number = int.Parse(labelsMap[row, col].Text);
-                                        labelsMap[row, col].Text = (number * 2).ToString();
+                                        int number = int.Parse(labelsMap[i, j].Text);
+                                        labelsMap[i, j].Text = (number * 2).ToString();
                                         score += number * 2;
-                                        labelsMap[nextRow, col].Text = string.Empty;
+                                        labelsMap[k, j].Text = string.Empty;
                                     }
                                     break;
                                 }
@@ -207,18 +204,18 @@ namespace _2048_WinForms_App
                     }
                 }
 
-                for (int col = 0; col < mapSize; col++)
+                for (int j = 0; j < mapSize; j++)
                 {
-                    for (int row = 0; row < mapSize; row++)
+                    for (int i = 0; i < mapSize; i++)
                     {
-                        if (labelsMap[row, col].Text == string.Empty)
+                        if (labelsMap[i, j].Text == string.Empty)
                         {
-                            for (int nextRow = row + 1; nextRow < mapSize; nextRow++)
+                            for (int k = i + 1; k < mapSize; k++)
                             {
-                                if (labelsMap[nextRow, col].Text != string.Empty)
+                                if (labelsMap[k, j].Text != string.Empty)
                                 {
-                                    labelsMap[row, col].Text = labelsMap[nextRow, col].Text;
-                                    labelsMap[nextRow, col].Text = string.Empty;
+                                    labelsMap[i, j].Text = labelsMap[k, j].Text;
+                                    labelsMap[k, j].Text = string.Empty;
                                     break;
                                 }
                             }
@@ -228,22 +225,22 @@ namespace _2048_WinForms_App
             }
             if (e.KeyCode == Keys.Down)
             {
-                for (int col = 0; col < mapSize; col++)
+                for (int j = 0; j < mapSize; j++)
                 {
-                    for (int row = mapSize - 1; row >= 0; row--)
+                    for (int i = mapSize - 1; i >= 0; i--)
                     {
-                        if (labelsMap[row, col].Text != string.Empty)
+                        if (labelsMap[i, j].Text != string.Empty)
                         {
-                            for (int nextRow = row - 1; nextRow >= 0; nextRow--)
+                            for (int k = i - 1; k >= 0; k--)
                             {
-                                if (labelsMap[nextRow, col].Text != string.Empty)
+                                if (labelsMap[k, j].Text != string.Empty)
                                 {
-                                    if (labelsMap[row, col].Text == labelsMap[nextRow, col].Text)
+                                    if (labelsMap[i, j].Text == labelsMap[k, j].Text)
                                     {
-                                        int number = int.Parse(labelsMap[row, col].Text);
-                                        labelsMap[row, col].Text = (number * 2).ToString();
+                                        int number = int.Parse(labelsMap[i, j].Text);
+                                        labelsMap[i, j].Text = (number * 2).ToString();
                                         score += number * 2;
-                                        labelsMap[nextRow, col].Text = string.Empty;
+                                        labelsMap[k, j].Text = string.Empty;
                                     }
                                     break;
                                 }
@@ -252,18 +249,18 @@ namespace _2048_WinForms_App
                     }
                 }
 
-                for (int col = 0; col < mapSize; col++)
+                for (int j = 0; j < mapSize; j++)
                 {
-                    for (int row = mapSize - 1; row >= 0; row--)
+                    for (int i = mapSize - 1; i >= 0; i--)
                     {
-                        if (labelsMap[row, col].Text == string.Empty)
+                        if (labelsMap[i, j].Text == string.Empty)
                         {
-                            for (int nextRow = row - 1; nextRow >= 0; nextRow--)
+                            for (int k = i - 1; k >= 0; k--)
                             {
-                                if (labelsMap[nextRow, col].Text != string.Empty)
+                                if (labelsMap[k, j].Text != string.Empty)
                                 {
-                                    labelsMap[row, col].Text = labelsMap[nextRow, col].Text;
-                                    labelsMap[nextRow, col].Text = string.Empty;
+                                    labelsMap[i, j].Text = labelsMap[k, j].Text;
+                                    labelsMap[k, j].Text = string.Empty;
                                     break;
                                 }
                             }
@@ -296,5 +293,7 @@ namespace _2048_WinForms_App
         {
             Application.Exit();
         }
+
+       
     }
 }

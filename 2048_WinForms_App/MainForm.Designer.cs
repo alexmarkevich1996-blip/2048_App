@@ -75,21 +75,21 @@
             // rulesToolStripMenuItem
             // 
             rulesToolStripMenuItem.Name = "rulesToolStripMenuItem";
-            rulesToolStripMenuItem.Size = new Size(180, 22);
+            rulesToolStripMenuItem.Size = new Size(110, 22);
             rulesToolStripMenuItem.Text = "Rules";
             rulesToolStripMenuItem.Click += rulesToolStripMenuItem_Click;
             // 
             // restartToolStripMenuItem
             // 
             restartToolStripMenuItem.Name = "restartToolStripMenuItem";
-            restartToolStripMenuItem.Size = new Size(180, 22);
+            restartToolStripMenuItem.Size = new Size(110, 22);
             restartToolStripMenuItem.Text = "Restart";
             restartToolStripMenuItem.Click += restartToolStripMenuItem_Click;
             // 
             // exitToolStripMenuItem
             // 
             exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            exitToolStripMenuItem.Size = new Size(180, 22);
+            exitToolStripMenuItem.Size = new Size(110, 22);
             exitToolStripMenuItem.Text = "Exit";
             exitToolStripMenuItem.Click += exitToolStripMenuItem_Click;
             // 
