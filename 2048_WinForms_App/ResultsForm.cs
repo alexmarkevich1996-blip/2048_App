@@ -18,13 +18,14 @@ namespace _2048_WinForms_App
             InitializeComponent();
         }
 
-        private void ResultsDataGridView_Load(object sender, EventArgs e)
+        private void ResultsForm_Load(object sender, EventArgs e)
         {
             var users = UserManager.GetAll();
 
-            var displayData = users.Select(u => new { u.Name, u.Score }).ToList();
-
-            resultsDataGridView.DataSource = displayData;
+            foreach (var user in users)
+            {
+                resultsDataGridView.Rows.Add(user.Name, user.Score);
+            }
         }
     }
 }

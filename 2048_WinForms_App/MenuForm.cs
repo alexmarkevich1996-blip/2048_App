@@ -37,5 +37,13 @@ namespace _2048_WinForms_App
             gameRulesForm.ShowDialog();
             Show();
         }
+
+        private void resultsButton_Click(object sender, EventArgs e)
+        {
+            var resultsForm = new ResultsForm();
+            Hide();
+            resultsForm.ShowDialog();
+            Show();
+        }
     }
 }

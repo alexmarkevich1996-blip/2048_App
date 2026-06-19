@@ -31,6 +31,7 @@
             startNewGameButton = new Button();
             ExitAppButton = new Button();
             readGameRulesButton = new Button();
+            resultsButton = new Button();
             SuspendLayout();
             // 
             // startNewGameButton
@@ -46,7 +47,7 @@
             // ExitAppButton
             // 
             ExitAppButton.BackColor = Color.FromArgb(255, 128, 128);
-            ExitAppButton.Location = new Point(318, 281);
+            ExitAppButton.Location = new Point(318, 349);
             ExitAppButton.Name = "ExitAppButton";
             ExitAppButton.Size = new Size(168, 41);
             ExitAppButton.TabIndex = 1;
@@ -64,11 +65,22 @@
             readGameRulesButton.UseVisualStyleBackColor = true;
             readGameRulesButton.Click += readGameRulesButton_Click;
             // 
+            // resultsButton
+            // 
+            resultsButton.Location = new Point(318, 282);
+            resultsButton.Name = "resultsButton";
+            resultsButton.Size = new Size(168, 41);
+            resultsButton.TabIndex = 3;
+            resultsButton.Text = "Results";
+            resultsButton.UseVisualStyleBackColor = true;
+            resultsButton.Click += resultsButton_Click;
+            // 
             // MenuForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(866, 595);
+            Controls.Add(resultsButton);
             Controls.Add(readGameRulesButton);
             Controls.Add(ExitAppButton);
             Controls.Add(startNewGameButton);
@@ -82,5 +94,6 @@
         private Button startNewGameButton;
         private Button ExitAppButton;
         private Button readGameRulesButton;
+        private Button resultsButton;
     }
 }

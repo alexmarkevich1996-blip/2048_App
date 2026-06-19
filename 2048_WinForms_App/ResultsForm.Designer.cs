@@ -61,6 +61,7 @@
             Controls.Add(resultsDataGridView);
             Name = "ResultsForm";
             Text = "ResultsForm";
+            Load += ResultsForm_Load;
             ((System.ComponentModel.ISupportInitialize)resultsDataGridView).EndInit();
             ResumeLayout(false);
         }
