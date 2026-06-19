@@ -35,6 +35,9 @@
             rulesToolStripMenuItem = new ToolStripMenuItem();
             restartToolStripMenuItem = new ToolStripMenuItem();
             exitToolStripMenuItem = new ToolStripMenuItem();
+            showResultsToolStripMenuItem = new ToolStripMenuItem();
+            bestScoreLabel = new Label();
+            bestScoreTextLabel = new Label();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -58,7 +61,7 @@
             // 
             // menuStrip1
             // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, showResultsToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(983, 24);
@@ -93,11 +96,38 @@
             exitToolStripMenuItem.Text = "Exit";
             exitToolStripMenuItem.Click += exitToolStripMenuItem_Click;
             // 
+            // showResultsToolStripMenuItem
+            // 
+            showResultsToolStripMenuItem.Name = "showResultsToolStripMenuItem";
+            showResultsToolStripMenuItem.Size = new Size(85, 20);
+            showResultsToolStripMenuItem.Text = "Show results";
+            showResultsToolStripMenuItem.Click += showResultsToolStripMenuItem_Click;
+            // 
+            // bestScoreLabel
+            // 
+            bestScoreLabel.AutoSize = true;
+            bestScoreLabel.Location = new Point(896, 30);
+            bestScoreLabel.Name = "bestScoreLabel";
+            bestScoreLabel.Size = new Size(13, 15);
+            bestScoreLabel.TabIndex = 4;
+            bestScoreLabel.Text = "0";
+            // 
+            // bestScoreTextLabel
+            // 
+            bestScoreTextLabel.AutoSize = true;
+            bestScoreTextLabel.Location = new Point(818, 30);
+            bestScoreTextLabel.Name = "bestScoreTextLabel";
+            bestScoreTextLabel.Size = new Size(67, 15);
+            bestScoreTextLabel.TabIndex = 3;
+            bestScoreTextLabel.Text = "Best Score: ";
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(983, 666);
+            Controls.Add(bestScoreLabel);
+            Controls.Add(bestScoreTextLabel);
             Controls.Add(scoreLabel);
             Controls.Add(scoreTextLabel);
             Controls.Add(menuStrip1);
@@ -122,5 +152,8 @@
         private ToolStripMenuItem rulesToolStripMenuItem;
         private ToolStripMenuItem restartToolStripMenuItem;
         private ToolStripMenuItem exitToolStripMenuItem;
+        private ToolStripMenuItem showResultsToolStripMenuItem;
+        private Label bestScoreLabel;
+        private Label bestScoreTextLabel;
     }
 }
